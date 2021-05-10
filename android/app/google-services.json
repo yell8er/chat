@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "639796687207",
+    "project_id": "fc6chat",
+    "storage_bucket": "fc6chat.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:639796687207:android:5e3e030e45d06b6bf23fc2",
+        "android_client_info": {
+          "package_name": "com.example.fc6"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "639796687207-3m6gfihd5c9af576d989q1g4hui7pte1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB3XvQih8TQ7roTj0o_DAiNYP2Gob_qLXE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "639796687207-3m6gfihd5c9af576d989q1g4hui7pte1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
