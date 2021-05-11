@@ -11,16 +11,16 @@ class UserImagePicker extends StatefulWidget {
 class _UserImagePickerState extends State<UserImagePicker> {
   File _pickedImage;
 
+  void _pickImage() async {
+    final pickedImageFile =
+        await ImagePicker.pickImage(source: ImageSource.camera);
+    setState(() {
+      _pickedImage = pickedImageFile;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    void _pickImage() async {
-      final pickedImageFile =
-          await ImagePicker.pickImage(source: ImageSource.camera);
-      setState(() {
-        _pickedImage = pickedImageFile;
-      });
-    }
-
     return Column(
       children: [
         CircleAvatar(
