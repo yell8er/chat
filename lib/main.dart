@@ -15,6 +15,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter chat',
       theme: ThemeData(
         primarySwatch: Colors.pink,
@@ -32,7 +33,8 @@ class MyApp extends StatelessWidget {
       home: StreamBuilder(
           stream: FirebaseAuth.instance.onAuthStateChanged,
           builder: (ctx, userSnapshot) {
-            if (userSnapshot.connectionState == ConnectionState.waiting) {
+            if (userSnapshot.connectionState ==
+                ConnectionState.waiting) {
               return SplashScreen();
             }
             if (userSnapshot.hasData) {
