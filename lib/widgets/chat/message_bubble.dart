@@ -2,7 +2,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 class MessageBubble extends StatelessWidget {
-  MessageBubble(this.message, this.userName, this.userImage, this.isMe,
+  MessageBubble(
+      this.message, this.userName, this.userImage, this.isMe,
       {this.key});
 
   final Key key;
@@ -13,6 +14,7 @@ class MessageBubble extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Stack(
+      clipBehavior: Clip.none,
       children: [
         Row(
           mainAxisAlignment:
@@ -20,12 +22,17 @@ class MessageBubble extends StatelessWidget {
           children: [
             Container(
               decoration: BoxDecoration(
-                color: isMe ? Colors.grey[300] : Theme.of(context).accentColor,
+                color: isMe
+                    ? Colors.grey[300]
+                    : Theme.of(context).accentColor,
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(12),
                   topRight: Radius.circular(12),
-                  bottomLeft: !isMe ? Radius.circular(0) : Radius.circular(12),
-                  bottomRight: isMe ? Radius.circular(0) : Radius.circular(12),
+                  bottomLeft: !isMe
+                      ? Radius.circular(0)
+                      : Radius.circular(12),
+                  bottomRight:
+                      isMe ? Radius.circular(0) : Radius.circular(12),
                 ),
               ),
               width: 140,
@@ -38,8 +45,9 @@ class MessageBubble extends StatelessWidget {
                 horizontal: 8,
               ),
               child: Column(
-                crossAxisAlignment:
-                    isMe ? CrossAxisAlignment.end : CrossAxisAlignment.start,
+                crossAxisAlignment: isMe
+                    ? CrossAxisAlignment.end
+                    : CrossAxisAlignment.start,
                 children: [
                   Text(
                     userName,
@@ -47,7 +55,10 @@ class MessageBubble extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                       color: isMe
                           ? Colors.black
-                          : Theme.of(context).accentTextTheme.headline1.color,
+                          : Theme.of(context)
+                              .accentTextTheme
+                              .headline1
+                              .color,
                     ),
                   ),
                   Text(
@@ -55,7 +66,10 @@ class MessageBubble extends StatelessWidget {
                     style: TextStyle(
                       color: isMe
                           ? Colors.black
-                          : Theme.of(context).accentTextTheme.headline1.color,
+                          : Theme.of(context)
+                              .accentTextTheme
+                              .headline1
+                              .color,
                     ),
                     textAlign: isMe ? TextAlign.end : TextAlign.start,
                   ),
@@ -73,7 +87,6 @@ class MessageBubble extends StatelessWidget {
           ),
         ),
       ],
-      overflow: Overflow.visible,
     );
   }
 }

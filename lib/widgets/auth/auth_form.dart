@@ -40,7 +40,7 @@ class _AuthFormState extends State<AuthForm> {
     FocusScope.of(context).unfocus();
 
     if (_userImageFile == null && !_isLogin) {
-      Scaffold.of(context).showSnackBar(
+      ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text('Please pick an image.'),
           backgroundColor: Theme.of(context).errorColor,
@@ -88,7 +88,8 @@ class _AuthFormState extends State<AuthForm> {
                       return null;
                     },
                     keyboardType: TextInputType.emailAddress,
-                    decoration: InputDecoration(labelText: 'Email address'),
+                    decoration:
+                        InputDecoration(labelText: 'Email address'),
                     onSaved: (value) {
                       _userEmail = value;
                     },
@@ -105,7 +106,8 @@ class _AuthFormState extends State<AuthForm> {
                         }
                         return null;
                       },
-                      decoration: InputDecoration(labelText: 'Username'),
+                      decoration:
+                          InputDecoration(labelText: 'Username'),
                       onSaved: (value) {
                         _userName = value;
                       },
@@ -118,7 +120,8 @@ class _AuthFormState extends State<AuthForm> {
                       }
                       return null;
                     },
-                    decoration: InputDecoration(labelText: 'Password'),
+                    decoration:
+                        InputDecoration(labelText: 'Password'),
                     obscureText: true,
                     onSaved: (value) {
                       _userPassword = value;
@@ -129,13 +132,16 @@ class _AuthFormState extends State<AuthForm> {
                   ),
                   if (widget.isLoading) CircularProgressIndicator(),
                   if (!widget.isLoading)
-                    RaisedButton(
+                    ElevatedButton(
                       child: Text(_isLogin ? 'Login' : 'SignUp'),
                       onPressed: _trySubmit,
                     ),
                   if (!widget.isLoading)
-                    FlatButton(
-                      textColor: Theme.of(context).primaryColor,
+                    TextButton(
+                      style: TextButton.styleFrom(
+                          textStyle: TextStyle(
+                        color: Theme.of(context).primaryColor,
+                      )),
                       child: Text(_isLogin
                           ? 'Create new account'
                           : 'I already have an account'),
